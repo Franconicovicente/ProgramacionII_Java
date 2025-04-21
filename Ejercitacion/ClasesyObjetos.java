@@ -8,11 +8,19 @@ public class ClasesyObjetos {
         
         try {
             
-            Rectangulo rectangulo = new Rectangulo(10,20);
-            rectangulo.calcularArea();
-            rectangulo.calcularPerimetro();
-            rectangulo.esCuadrado();
-            rectangulo.mostrarInfo();
+            Rectangulo r = new Rectangulo(10,20);
+            Rectangulo r2 = new Rectangulo(20,30);
+            
+            Rectangulo r3 = r.sumarRectangulos(r2);
+            
+            Rectangulo r4 = Rectangulo.sumarRectangulos(r,r2);
+            Rectangulo.sumarRectangulos(r, r4); 
+            
+            r4.mostrarInfo();
+            
+            
+            r3.mostrarInfo();
+//            rectangulo.mostrarInfo();
             
         } catch (IllegalArgumentException ex){
             System.out.println(ex.getMessage());
@@ -69,6 +77,36 @@ public class ClasesyObjetos {
         }catch (RuntimeException ex){
             System.out.println(ex.getMessage());
         }
+        
+        System.out.println("########################");
+        
+        try {
+            
+            Libro libro = new Libro("DX", "CARLOS", 300, 200);
+            
+            libro.avanzarPagina(103);
+            libro.mostrarDatos();
+                    
+        }catch (RuntimeException ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        System.out.println("########################");
+        
+        try{
+            
+            Termometro temperatura = new Termometro(30);
+            
+            temperatura.convertirCelsius_Fahrenheit();
+            temperatura.convertirFahrenheit_Celsius();
+            temperatura.mostrarInfo();
+            temperatura.aumentarTemperatura(40);
+            temperatura.mostrarInfo();
+            
+        }catch (RuntimeException ex){
+            System.out.println(ex.getMessage());
+        }
+        
         
         
     }

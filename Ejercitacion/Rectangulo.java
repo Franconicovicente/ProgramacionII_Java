@@ -12,55 +12,64 @@ package Ejercitacion;
 public class Rectangulo {
     private final double ancho;
     private final double alto;
-    private double areaRectangulo;
-    private double perimetroRectangulo;
-    private boolean esCuadrado;
     private static final String ANCHO_ERROR = "No se puede tener 0 o un valor negativo en el valor de ancho";
     private static final String ALTO_ERROR = "No se puede tener 0 o un valor negativo en el valor de alto";
     
     
     public Rectangulo (double ancho, double alto){
-        validarDatos(ancho, alto);
         this.ancho = ancho;
         this.alto = alto;
-       
+    }
+    
+    public Rectangulo sumarRectangulos(Rectangulo r){
+        return new Rectangulo (this.ancho + r.ancho, this.alto + r.alto);
+    }
+    public static Rectangulo sumarRectangulos(Rectangulo r, Rectangulo r1){
+        return new Rectangulo (r.ancho + r1.ancho, r.alto + r1.alto);
     }
     
     public double calcularArea(){
-        areaRectangulo = (ancho * alto);
-        return areaRectangulo;
+        return ancho * alto;
     }
     
-     private void validarDatos(double ancho, double alto){
-        
+    private void validarAncho(double ancho){
         if (ancho <= 0){
             throw new IllegalArgumentException(ANCHO_ERROR);
         }
+    }
+    
+    public double getAncho(){
+        return ancho;
+    }
+    public double getAlto(){
+        return ancho;
+    }
+    
+    private void validarAlto(double alto){
         if (alto <= 0){
             throw new IllegalArgumentException(ALTO_ERROR);
         }
     }
     
+    public void validarDatos(){
+        validarAlto(alto);
+        validarAncho(ancho);
+    }
+    
     public double calcularPerimetro(){
-        perimetroRectangulo = (2 * alto) + (2 * ancho);
-        return perimetroRectangulo;
+        return 2 * (ancho + alto) ;
     }
     
     public boolean esCuadrado(){
-        if (alto == ancho){
-            esCuadrado = true;
-        }else{
-            esCuadrado = false;
-        }
-        return esCuadrado;
+        return alto == ancho;
     }
     
     public void mostrarInfo(){
         System.out.println("Ancho: "+ ancho);
         System.out.println("Alto: "+ alto);
-        System.out.println("Area Rectangulo: "+ areaRectangulo);
-        System.out.println("Perimetro Rectangulo: " + perimetroRectangulo);
-        System.out.println(esCuadrado);
+        System.out.println(calcularArea());
+        System.out.println(calcularPerimetro());
+        System.out.println(esCuadrado());
     }
     
 }
