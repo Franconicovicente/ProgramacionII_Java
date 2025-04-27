@@ -92,6 +92,10 @@ public class Televisor {
         
     }
     
+    public int getNroSerie(){
+        return nroSerie;
+    }
+    
     
     
     

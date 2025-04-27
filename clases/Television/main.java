@@ -8,11 +8,20 @@ public class main {
                 Televisor tv1 = new Televisor("Sony", 55);
                 Televisor tv2 = new Televisor("Samsung", 33);
                 
-                tv1.encender();
-                tv1.mostrarInfo();
+//                tv1.encender();
+//                tv1.mostrarInfo();
                 System.out.println("##############################");
-                tv2.encender();
-                tv2.mostrarInfo();
+//                tv2.encender();
+//                tv2.mostrarInfo();
+                
+                ControlRemoto control = new ControlRemoto(tv1);
+                
+                control.mostrarInfo();
+                
+                control.encender();
+                
+                control.subirCanal();
+                System.out.println(control.informarTv());
                 
                 
 //                for (int i = 0; i < 100; i++){
