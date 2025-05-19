@@ -1,115 +1,142 @@
-
 package IntegradorListas;
 
+import IntegradorListas.TipoDispositivo;
 import java.util.ArrayList;
 
 import java.util.Iterator;
 import java.util.Objects;
 
-
 public class Sucursal {
-    
+
     private final String nombreSucursal;
     private final ArrayList<DispositivosElectronicos> dispositivos;
-    
-   
-    
-    
+
     public Sucursal(String nombreSucursal) {
         this.nombreSucursal = nombreSucursal;
         dispositivos = new ArrayList<>();
     }
-    
-   
-    private void validarDispositivo(DispositivosElectronicos dispositivo){
-        if (dispositivo == null){
+
+    private void validarDispositivo(DispositivosElectronicos dispositivo) {
+        if (dispositivo == null) {
             throw new NullPointerException("Dispositivo es nulo");
         }
     }
-    
-    public void agregarDispositivos(DispositivosElectronicos d){
+
+    public void agregarDispositivos(DispositivosElectronicos d) {
         validarDispositivo(d);
         dispositivos.add(d);
     }
-    
-    public ArrayList getDispositivos(){
+
+    public ArrayList getDispositivos() {
         return dispositivos;
     }
-    
-    public boolean compararNombre(String nombreSucursal){
+
+    public boolean compararNombre(String nombreSucursal) {
         return this.nombreSucursal.equals(nombreSucursal);
     }
-    
-    
-    public void listarDispositivos(){
-        if (dispositivos.isEmpty()){
+
+    public void listarDispositivos() {
+        if (dispositivos.isEmpty()) {
             System.out.println("No hay dispositivos");
             return;
         }
-        for (DispositivosElectronicos d : dispositivos){
-                System.out.println(d);
+        for (DispositivosElectronicos d : dispositivos) {
+            System.out.println(d);
         }
-        
+
     }
-    
+
     @Override
-    public boolean equals(Object o){
-        if(o == null || !(o instanceof Sucursal suc)){
+    public boolean equals(Object o) {
+        if (o == null || !(o instanceof Sucursal suc)) {
             return false;
         }
         return this.nombreSucursal.equals(suc.nombreSucursal);
     }
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hash(nombreSucursal);
     }
-    
-    private void validarTipo(TipoDispositivo.Tipo t){
-        if (t == null){
+
+    private void validarTipo(TipoDispositivo.Tipo t) {
+        if (t == null) {
             throw new NullPointerException("El tipo es nulo");
         }
     }
-    
-    public ArrayList<DispositivosElectronicos> dispositivosPorTipo(TipoDispositivo.Tipo tipo){
+
+    public ArrayList<DispositivosElectronicos> dispositivosPorTipo(TipoDispositivo.Tipo tipo) {
         validarTipo(tipo);
-        
+
         ArrayList<DispositivosElectronicos> dispositivosPorTipo = new ArrayList<>();
-        
-        for (DispositivosElectronicos d : dispositivos){
-            if (d.compararTipo(tipo)){
+
+        for (DispositivosElectronicos d : dispositivos) {
+            if (d.compararTipo(tipo)) {
                 dispositivosPorTipo.add(d);
             }
         }
         return dispositivosPorTipo;
     }
-    
-    
-    
-    public void borrarDispositivo(String ID) {
-    boolean encontrado = false;
-    Iterator<DispositivosElectronicos> it = dispositivos.iterator();
 
-    while (it.hasNext()) {
-        DispositivosElectronicos d = it.next();
-        if (d.compararID(ID)) {
-            it.remove();  // forma segura de borrar
-            System.out.println("Dispositivo eliminado correctamente.");
-            encontrado = true;
-            break; // Sale después de encontrar y borrar uno
+    public void borrarDispositivo(String ID) {
+        boolean encontrado = false;
+        Iterator<DispositivosElectronicos> it = dispositivos.iterator();
+
+        while (it.hasNext()) {
+            DispositivosElectronicos d = it.next();
+            if (d.compararID(ID)) {
+                it.remove();  // forma segura de borrar
+                System.out.println("Dispositivo eliminado correctamente.");
+                encontrado = true;
+                break; // Sale después de encontrar y borrar uno
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontro ningun ID como el que pusiste.");
         }
     }
 
-    if (!encontrado) {
-        System.out.println("No se encontro ningun ID como el que pusiste.");
-    }
-}
-    
-    public  boolean contieneDispositivo(String ID){
-        for (DispositivosElectronicos d : dispositivos){
-            if (d.compararID(ID))
+    public boolean contieneDispositivo(String ID) {
+        for (DispositivosElectronicos d : dispositivos) {
+            if (d.compararID(ID)) {
                 return true;
+            }
         }
         return false;
     }
+
+    public String getNombre() {
+        return nombreSucursal;
+    }
+
+    private double calcularPorcentaje(int cantidad, int total) {
+        return (double) cantidad / total * 100;
+    }
+
+    public double[] porcDispositivosPorTipo() {
+
+        int total = dispositivos.size();
+
+        if (total == 0) {
+            return null;
+        }
+
+        int cantTipo = TipoDispositivo.Tipo.values().length;
+
+        double[] porcentajes = new double[cantTipo];
+
+        int[] cantidades = new int[cantTipo];
+
+        for (DispositivosElectronicos d : dispositivos) {
+            cantidades[d.getTipo().ordinal()]++;
+        }
+
+        for (int i = 0; i < cantidades.length; i++) {
+            porcentajes[i] = calcularPorcentaje(cantidades[i], total);
+        }
+        return porcentajes;
+
+    }
+
 }
