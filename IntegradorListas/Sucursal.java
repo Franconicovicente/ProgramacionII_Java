@@ -45,6 +45,12 @@ public class Sucursal {
         }
 
     }
+    
+    private void validarSucursal(Sucursal suc){
+        if (suc == null){
+            throw new SucursalRepetidaException();
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -22,11 +22,15 @@ public class Empresa {
         this.nombre_empresa = nombre_empresa;
     }
 
+    private void validarSucursalRepetida(Sucursal suc) {
+        if (sucursales.contains(suc)) {
+            throw new SucursalRepetidaException();
+        }
+    }
+
     public void agregarSucursales(Sucursal s) {
         validarSucursalNula(s);
-        if (sucursales.contains(s)) {
-            throw new IllegalArgumentException("La sucursal ya se encuentra en la lista");
-        }
+        validarSucursalRepetida(s);
         sucursales.add(s);
     }
 

@@ -8,8 +8,8 @@ public class main {
         Empresa e1 = new Empresa("DispositivosTech");
 
         cargarEmpresa(e1);
-
-        e1.listarDispositivos();
+//
+//        e1.listarDispositivos();
 //    Iterator<DispositivosElectronicos> it = e1.dispositivosPorTipo(TipoDispositivo.Tipo.COMPUTADORA);
 //    
 //    
@@ -20,14 +20,13 @@ public class main {
 //          System.out.println(d);
 //       }
 //
-        e1.borrarDispositivo("300");
-        e1.borrarDispositivo("400");
-        e1.listarDispositivos();
+//        e1.borrarDispositivo("300");
+//        e1.borrarDispositivo("400");
+//        e1.listarDispositivos();
 
-        for (double porc : e1.obtenerPorcDispositivosPorTipo("Sucursal B")) {
-            System.out.println("Porc: %.2f".formatted(porc));
-        }
-
+//        for (double porc : e1.obtenerPorcDispositivosPorTipo("Sucursal B")) {
+//            System.out.println("Porc: %.2f".formatted(porc));
+//        }
     }
 
     public static void cargarEmpresa(Empresa e) {
@@ -40,8 +39,12 @@ public class main {
         s2.agregarDispositivos(new DispositivosElectronicos("600", 400, TipoDispositivo.Tipo.COMPUTADORA));
         s2.agregarDispositivos(new DispositivosElectronicos("700", 500, TipoDispositivo.Tipo.TELEFONO));
 
-        e.agregarSucursales(s1);
-        e.agregarSucursales(s2);
+        try {
+            e.agregarSucursales(s1);
+            e.agregarSucursales(s1);
+        } catch (SucursalRepetidaException ex) {
+            System.out.println(ex.getMessage());
+        }
 
     }
 
