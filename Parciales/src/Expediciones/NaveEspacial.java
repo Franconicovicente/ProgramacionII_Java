@@ -1,4 +1,4 @@
-package parciales.Expediciones;
+package Expediciones;
 
 public abstract class NaveEspacial {
 

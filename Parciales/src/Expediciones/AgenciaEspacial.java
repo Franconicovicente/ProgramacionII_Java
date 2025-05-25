@@ -1,4 +1,4 @@
-package parciales.Expediciones;
+package Expediciones;
 
 import java.util.ArrayList;
 import java.util.List;
