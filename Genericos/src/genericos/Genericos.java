@@ -13,17 +13,16 @@ public class Genericos {
         CajaGenerica<Integer> cajaGenerica1 = new CajaGenerica<Integer>();
         CajaGenerica<String> cajaGenerica2 = new CajaGenerica<String>();
         CajaGenerica<Persona> cajaGenerica3 = new CajaGenerica<Persona>();
-        
+
         cajaGenerica1.setDato(33);
         System.out.println(cajaGenerica1.getDato());
-        
+
         cajaGenerica2.setDato("Hola");
         System.out.println(cajaGenerica2.getDato());
-        
+
         cajaGenerica3.setDato(p);
         System.out.println(cajaGenerica3.getDato().getSaludo());
-        
-        
+
 //        cajaEntero.setDato(45);
 //        cajaCadena.setDato("Hola");
 //        cajaPersona.setValor(p);
@@ -34,7 +33,6 @@ public class Genericos {
 //        System.out.println(cajaObjeto.getDato());
 //        cajaObjeto.setDato("Hola");
 //        System.out.println(cajaObjeto.getDato());
-
 //        System.out.println(cajaCadena.getDato().toUpperCase());
 //        System.out.println(cajaPersona.getDato().getSaludo());
 //        System.out.println(cajaEntero.getDato());
