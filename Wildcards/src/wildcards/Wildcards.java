@@ -34,8 +34,8 @@ public class Wildcards {
 //        GestionListas.imprimirListaAnimales(animales);
 //        GestionListas.agregarElemento(numeros, 32);
 //        GestionListas.imprimirLista(numeros);
-        GestionListas.agregarElemento(animales, new Mascota("Ejemplo", "EJemplo"));
-        GestionListas.imprimirLista(animales);
+//        GestionListas.agregarElemento(animales, new Mascota("Ejemplo", "EJemplo"));
+//        GestionListas.imprimirLista(animales);
 
 //        CajaGenerica<Animal> cajaAnimal = new CajaGenerica<>();
 //        CajaGenerica<Mascota> cajaMascota = new CajaGenerica<>();

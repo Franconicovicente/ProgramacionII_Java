@@ -12,7 +12,7 @@ public interface GestionListas {
     }
 
     public static void imprimirListaAnimales(List<? extends Animal> lista) {
-        for (Object o : lista) {
+        for (Animal o : lista) {
             System.out.println(o);
         }
 
