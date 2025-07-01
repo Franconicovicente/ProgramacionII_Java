@@ -1,0 +1,4 @@
+id, nombre, fecha, artista, genero 
+123,Evento A,2005-03-12,Tupac,ROCK
+456,Evento B,2000-02-12,Madonna,POP
+789,Evento C,1990-07-12,Rolling Stones,CLASICA

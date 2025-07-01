@@ -28,23 +28,23 @@ public class Empleado extends Persona implements Serializable {
         return "nombre, dni, sueldo, sector \n";
     }
 
-    public static Empleado fromCSV(String empleadoCSV) {
-        Empleado toReturn = null;
+public static Empleado fromCSV(String empleadoCSV) {
+    Empleado toReturn = null;
 
-        if (empleadoCSV.endsWith("\n")) {
-            empleadoCSV = empleadoCSV.substring(empleadoCSV.length() - 1);
-        }
-
-        String[] values = empleadoCSV.split(",");
-        if (values.length == 4) {
-            String nombre = values[0];
-            int dni = Integer.parseInt(values[1]);
-            double sueldo = Double.parseDouble(values[2]);
-            Sector sector = Sector.valueOf(values[3]);
-            toReturn = new Empleado(dni, nombre, sueldo, sector);
-        }
-
-        return toReturn;
+    if (empleadoCSV.endsWith("\n")) {
+        empleadoCSV = empleadoCSV.substring(empleadoCSV.length() - 1);
     }
+
+    String[] values = empleadoCSV.split(",");
+    if (values.length == 4) {
+        String nombre = values[0];
+        int dni = Integer.parseInt(values[1]);
+        double sueldo = Double.parseDouble(values[2]);
+        Sector sector = Sector.valueOf(values[3]);
+        toReturn = new Empleado(dni, nombre, sueldo, sector);
+    }
+
+    return toReturn;
+}
 
 }
