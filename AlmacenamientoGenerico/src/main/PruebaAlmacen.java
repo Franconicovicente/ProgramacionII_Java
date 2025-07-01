@@ -1,21 +1,17 @@
 package main;
 
 import enums.Tipo;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.function.Predicate;
 import model.Almacen;
 import model.ComparadorProductoMarca;
-import model.ComparadorProductoPrecio;
 import model.Producto;
 
 public class PruebaAlmacen {
 
     public static void main(String[] args) {
-
-        Almacen<String> almacenString = new Almacen<>();
-        Almacen<Integer> almacenInteger = new Almacen<>();
+//
+//        Almacen<String> almacenString = new Almacen<>();
+//        Almacen<Integer> almacenInteger = new Almacen<>();
         Almacen<Producto> almacenProducto = new Almacen<>();
 
         almacenProducto.agregar(new Producto(1234, "Coca Cola", 13145, Tipo.BEBIDA));
@@ -27,20 +23,14 @@ public class PruebaAlmacen {
         almacenProducto.agregar(new Producto(192021, "Fanta", 132245, Tipo.BEBIDA));
 
 //        almacenProducto.mostrarContenido();
-        Iterator<Producto> it = almacenProducto.iterator(new ComparadorProductoMarca());
-        Iterator<Producto> it1 = almacenProducto.iterator(new ComparadorProductoPrecio());
-        
-
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-        
-        System.out.println("########");
-        
-        while (it1.hasNext()) {
-            System.out.println(it1.next());
-        }
-        
+//        Iterator<Producto> it = almacenProducto.iterator(new ComparadorProductoMarca());
+//
+//        System.out.println("------ Productos ordenados por Marca -------");
+//
+//        while (it.hasNext()) {
+//            System.out.println(it.next());
+//        }
+        almacenProducto.forEach(p -> System.out.println(p));
 
     }
 
