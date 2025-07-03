@@ -29,6 +29,10 @@ public class Producto implements Comparable<Producto> {
         return precio;
     }
 
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
     public Tipo getTipo() {
         return tipo;
     }

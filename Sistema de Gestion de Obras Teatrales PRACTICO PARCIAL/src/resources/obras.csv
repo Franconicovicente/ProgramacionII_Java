@@ -1,0 +1,8 @@
+codigo, titulo, estreno, director, genero 
+200,Obra Teatral 1,2005-03-12,Director 1,COMEDIA
+300,Obra Teatral 2,2006-04-12,Director 2,DRAMA
+400,Obra Teatral 3,2007-08-12,Director 3,MUSICAL
+500,Obra Teatral 4,2008-12-12,Director 4,INFANTIL
+600,Obra Teatral 5,2009-02-12,Director 5,TRAGEDIA
+700,Obra Teatral 6,2010-01-12,Director 6,TRAGEDIA
+800,Obra Teatral 7,2011-07-12,Director 7,DRAMA

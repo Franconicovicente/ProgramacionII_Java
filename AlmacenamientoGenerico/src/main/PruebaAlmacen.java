@@ -32,6 +32,28 @@ public class PruebaAlmacen {
 //        }
         almacenProducto.forEach(p -> System.out.println(p));
 
+        System.out.println("----- Filtrados por Tipo Bebida ----- ");
+
+        almacenProducto.filtrar(p -> p.getTipo() == Tipo.BEBIDA).forEach(p -> System.out.println(p));
+
+        System.out.println("----- Precio productos ----- ");
+
+        almacenProducto.paraCadaElemento(p -> {
+
+            System.out.println("- " + p.getNombre() + "," + p.getPrecio());
+
+        });
+
+        System.out.println("----- Productos por TIPO ----- ");
+
+        Almacen.mostrarTipo(almacenProducto);
+
+        System.out.println("----- Aumentar COMIDAS ----- ");
+
+        almacenProducto.aumentarComida(almacenProducto);
+
+        almacenProducto.mostrarContenido();
+
     }
 
 }

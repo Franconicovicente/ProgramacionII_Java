@@ -49,21 +49,15 @@ public class main {
 //        
 //        GestorActividades.mostrarContenido(gestor.getElementos());
 //        GestorActividades.guardarElementosCSV(actividades, ConfigApp.getRutaCSVString());
-
         List<ActividadDeportiva> actividades1 = GestorActividades.cargarElementosCSV(ConfigApp.getRutaCSVString());
-        
+
 //        GestorActividades.mostrarContenido(actividades1);
-        
-        
         GestorActividades.serializarElementos(actividades1, ConfigApp.getRutaBinarioString());
-        
-        
+
         List<ActividadDeportiva> actividades2 = GestorActividades.deserializarElementos(ConfigApp.getRutaBinarioString());
-        
+
         GestorActividades.mostrarContenido(actividades2);
-        
-        
-        
+
     }
 
 }
